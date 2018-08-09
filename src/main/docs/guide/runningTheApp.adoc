@@ -1,0 +1,65 @@
+Run `bookcatalogue` microservice:
+
+[source,bash]
+----
+bookcatalogue $ ./gradlew run
+ Starting a Gradle Daemon, 2 stopped Daemons could not be reused, use --status for details
+
+ > Task :bookcatalogue:compileJava
+ Note: Creating bean classes for 1 type elements
+
+ > Task :bookcatalogue:run
+ 14:28:34.034 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 499ms. Server Running: http://localhost:8081
+----
+
+Run `bookinventory` microservice:
+
+[source,bash]
+----
+bookinventory $ ./gradlew run
+ Starting a Gradle Daemon, 2 stopped Daemons could not be reused, use --status for details
+
+ > Task :bookinventory:compileJava
+ Note: Creating bean classes for 1 type elements
+
+ > Task :bookcatalogue:run
+ 14:31:13.104 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 499ms. Server Running: http://localhost:8082
+----
+
+Run `bookrecommendation` microservice:
+
+[source, bash]
+----
+bookrecommendation $ ./gradlew run
+Starting a Gradle Daemon, 2 busy and 2 stopped Daemons could not be reused, use --status for details
+
+> Task :bookrecommendation:compileJava
+Note: Creating bean classes for 3 type elements
+
+> Task :bookrecommendation:run
+14:31:57.389 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 523ms. Server Running: http://localhost:8080
+----
+
+You can run a cURL command to test the whole application:
+
+[source, bash]
+----
+$ curl http://localhost:8080/books
+[{"name":"Building Microservices"}
+----
+
+You can then navigate to http://localhost:9411 t to access the Jaeger UI.
+
+The previous request generates a traces composed by 9 spans.
+
+image::zipkinui.png[]
+
+In the previous image, you can see that:
+
+- Whenever a Micronaut HTTP client executes a new network request, it creates a new Span.
+- Whenever a Micronaut Server receives a request, it creates a new Span.
+
+The `stock.isbn` tags that we configured with `@SpanTag` are present.
+
+Moreover, you can see the requests to `bookinventory` are done in paralell.
+

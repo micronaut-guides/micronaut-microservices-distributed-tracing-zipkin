@@ -1,0 +1,15 @@
+The initial folder contains a sample application. To learn more about this sample app read
+http://guides.micronaut.io/micronaut-microservices-services-discover-consul/guide/index.html[Consul and Micronaut - Microservices service discovery
+] guide. The application contains three microservices.
+
+* `bookcatalogue` - It returns a list of books. It uses a domain consisting of a book name and isbn.
+
+* `bookinventory` - It exposes an endpoint to check whether a book has sufficient stock to fullfil an order.  I uses a domain consisting of a stock level and isbn.
+
+* `bookrecommendation` - It consumes previous services and exposes and endpoint which recommends book names which are in stock.
+
+The `bookcatalogue` service consumes endpoints exposed by the other services. The following image illustrates the application flow:
+
+image::flow.svg[]
+
+include::{commondir}/common-annotationprocessors.adoc[]

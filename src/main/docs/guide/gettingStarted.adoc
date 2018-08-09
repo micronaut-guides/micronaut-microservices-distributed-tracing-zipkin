@@ -1,0 +1,7 @@
+In this guide, we are going to integrate https://zipkin.io[Zipkin] in a Micronaut app composed of three microservices.
+
+____
+Zipkin is a distributed tracing system. It helps gather timing data needed to troubleshoot latency problems in microservice architectures. It manages both the collection and lookup of this data.
+____
+
+You will discover how Micronaut eases Zipkin integration.
