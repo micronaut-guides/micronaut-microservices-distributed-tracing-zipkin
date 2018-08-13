@@ -50,16 +50,23 @@ $ curl http://localhost:8080/books
 
 You can then navigate to http://localhost:9411 t to access the Jaeger UI.
 
-The previous request generates a traces composed by 9 spans.
+The previous request generates a trace composed by 5 spans.
 
 image::zipkinui.png[]
 
+In the previous image, you can see the requests to `bookinventory` are done in paralell.
+
+You can see the details if you click the span:
+
+image::zipkinclientserver.png[]
+
 In the previous image, you can see that:
 
-- Whenever a Micronaut HTTP client executes a new network request, it creates a new Span.
-- Whenever a Micronaut Server receives a request, it creates a new Span.
+- Whenever a Micronaut HTTP client executes a new network request, a span is involved.
+- Whenever a Micronaut Server receives a request, a span is involved.
 
-The `stock.isbn` tags that we configured with `@SpanTag` are present.
+The `stock.isbn` tags that we configured with `@SpanTag` is present as shown in the next image:
 
-Moreover, you can see the requests to `bookinventory` are done in paralell.
+image::zipkintag.png[]
+
 
