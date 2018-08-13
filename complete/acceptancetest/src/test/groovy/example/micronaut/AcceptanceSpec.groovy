@@ -23,7 +23,7 @@ class AcceptanceSpec extends Specification implements MicroserviceHealth {
 
     def "verifies three microservices collaborate together with consul service registration"() {
 
-        expect:
+        given:
         Assume.assumeTrue(isUp('http://localhost:8080'))
         Assume.assumeTrue(isUp('http://localhost:8081'))
         Assume.assumeTrue(isUp('http://localhost:8082'))
