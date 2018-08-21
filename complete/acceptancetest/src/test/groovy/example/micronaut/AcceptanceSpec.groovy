@@ -4,12 +4,10 @@ import io.micronaut.context.ApplicationContext
 import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.client.RxHttpClient
-import io.micronaut.runtime.server.EmbeddedServer
 import org.junit.Assume
 import spock.lang.AutoCleanup
 import spock.lang.Shared
 import spock.lang.Specification
-import spock.util.concurrent.PollingConditions
 
 class AcceptanceSpec extends Specification implements MicroserviceHealth {
 
