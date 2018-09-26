@@ -1,7 +1,7 @@
 package example.micronaut.bookrecommendation;
 
 import io.micronaut.http.annotation.Get;
-import io.micronaut.http.client.Client;
+import io.micronaut.http.client.annotation.Client;
 import io.reactivex.Maybe;
 import javax.validation.constraints.NotBlank;
 
