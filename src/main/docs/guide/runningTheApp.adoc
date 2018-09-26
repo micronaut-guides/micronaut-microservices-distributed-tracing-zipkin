@@ -48,7 +48,7 @@ $ curl http://localhost:8080/books
 [{"name":"Building Microservices"}
 ----
 
-You can then navigate to http://localhost:9411 t to access the Jaeger UI.
+You can then navigate to http://localhost:9411 t to access the Zipkin UI.
 
 The previous request generates a trace composed by 5 spans.
 
