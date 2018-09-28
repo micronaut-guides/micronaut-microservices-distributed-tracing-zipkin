@@ -54,5 +54,5 @@ include::{sourceDir}/bookinventory/src/main/java/example/micronaut/bookinventory
 ----
 
 <1> The `@ContinueSpan` annotation will continue an existing span, wrapping the method call or reactive type.
-<2> The `@SpanTag` annotation can be used on method arguments to include the value of each argument within a Span's tags. When you use `@SpanTag` you need either to annotate the method with `@NewSpan` or `@ContinueSpan``
+<2> The `@SpanTag` annotation can be used on method arguments to include the value of each argument within a Span's tags. When you use `@SpanTag` you need either to annotate the method with `@NewSpan` or `@ContinueSpan`
 
