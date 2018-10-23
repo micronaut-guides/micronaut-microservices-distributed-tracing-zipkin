@@ -60,9 +60,9 @@ dependencies {
     //end::tracing[]
 
     //tag::zipkin[]
-    runtime 'io.zipkin.brave:brave-instrumentation-http:5.4.2'
-    runtime 'io.zipkin.reporter2:zipkin-reporter:2.7.9'
-    compile 'io.opentracing.brave:brave-opentracing:0.33.3'
+    runtime 'io.zipkin.brave:brave-instrumentation-http'
+    runtime 'io.zipkin.reporter2:zipkin-reporter'
+    compile 'io.opentracing.brave:brave-opentracing'
     //end::zipkin[]
 
     //tag::hamcrest[]
