@@ -2,4 +2,4 @@ As you have seen in this tutorial, without any annotations you get distributing 
 
 Micronaut includes several annotations to give you more flexibility. We introduced the `@ContinueSpan`, `@SpanTag` annotations. Also, you have at your disposal the `@NewSpan` annotation which will create a new span, wrapping the method call or reactive type.
 
-Make sure to read more about https://docs.micronaut.io/snapshot/guide/index.html#zipkin[Tracing with Zipkin] inside Micronaut.
+Make sure to read more about https://docs.micronaut.io/latest/guide/index.html#zipkin[Tracing with Zipkin] inside Micronaut.

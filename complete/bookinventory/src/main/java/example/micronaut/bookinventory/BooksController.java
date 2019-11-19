@@ -6,11 +6,10 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
 import io.micronaut.tracing.annotation.ContinueSpan;
 import io.micronaut.tracing.annotation.SpanTag;
-import io.micronaut.validation.Validated;
+
 import javax.validation.constraints.NotBlank;
 import java.util.Optional;
 
-@Validated
 @Controller("/books")
 public class BooksController {
 
@@ -22,10 +21,10 @@ public class BooksController {
     }
 
     private Optional<BookInventory> bookInventoryByIsbn(String isbn) {
-        if(isbn.equals("1491950358")) {
+        if (isbn.equals("1491950358")) {
             return Optional.of(new BookInventory(isbn, 4));
 
-        } else if(isbn.equals("1680502395")) {
+        } else if (isbn.equals("1680502395")) {
             return Optional.of(new BookInventory(isbn, 0));
         }
         return Optional.empty();
