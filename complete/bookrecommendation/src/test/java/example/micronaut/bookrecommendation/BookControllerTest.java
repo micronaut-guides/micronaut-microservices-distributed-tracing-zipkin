@@ -1,37 +1,22 @@
 package example.micronaut.bookrecommendation;
 
-import io.micronaut.context.ApplicationContext;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.client.RxStreamingHttpClient;
-import io.micronaut.runtime.server.EmbeddedServer;
+import io.micronaut.http.client.annotation.Client;
+import io.micronaut.test.annotation.MicronautTest;
 import io.reactivex.Flowable;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import java.util.Collections;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
+import javax.inject.Inject;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@MicronautTest
 public class BookControllerTest {
-    private static EmbeddedServer server;
-    private static RxStreamingHttpClient client;
 
-    @BeforeClass // <1>
-    public static void setupServer() {
-        server = ApplicationContext.run(EmbeddedServer.class);
-        client = server
-                .getApplicationContext()
-                .createBean(RxStreamingHttpClient.class, server.getURL());
-    }
-
-    @AfterClass // <1>
-    public static void stopServer() {
-        if(server != null) {
-            server.stop();
-        }
-        if(client != null) {
-            client.stop();
-        }
-    }
+    @Inject
+    @Client("/")
+    RxStreamingHttpClient client;
 
     @Test
     public void testRetrieveBooks() throws Exception {

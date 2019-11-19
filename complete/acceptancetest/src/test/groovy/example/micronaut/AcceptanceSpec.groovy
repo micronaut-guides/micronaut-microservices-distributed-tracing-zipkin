@@ -29,7 +29,7 @@ class AcceptanceSpec extends Specification implements MicroserviceHealth {
         Assume.assumeTrue(isUp('http://localhost:8082'))
 
         when:
-        List<BookRecommendation> books = client.toBlocking().retrieve(HttpRequest.GET('/books'), Argument.of(List, BookRecommendation))
+        List<BookRecommendation> books = client.toBlocking().retrieve(HttpRequest.GET('/books'), Argument.listOf(BookRecommendation))
 
         then:
         books
