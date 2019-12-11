@@ -14,3 +14,5 @@ zipkin:
 runningTheApp: Running the app
 nextSteps:
   title: Next Steps
+help:
+  title: Help with Micronaut  
