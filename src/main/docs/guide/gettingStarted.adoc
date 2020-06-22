@@ -1,3 +1,5 @@
+include::{commondir}/common-micronautonex.adoc[]
+
 In this guide, we are going to integrate https://zipkin.io[Zipkin] in a Micronaut app composed of three microservices.
 
 ____

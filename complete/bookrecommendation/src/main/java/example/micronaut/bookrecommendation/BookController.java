@@ -16,7 +16,7 @@ public class BookController {
         this.bookInventoryOperations = bookInventoryOperations;
     }
 
-    @Get("/")
+    @Get
     public Flowable<BookRecommendation> index() {
         return bookCatalogueOperations.findAll()
                 .flatMapMaybe(b -> bookInventoryOperations.stock(b.getIsbn())

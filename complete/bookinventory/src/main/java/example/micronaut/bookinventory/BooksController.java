@@ -13,9 +13,9 @@ import java.util.Optional;
 @Controller("/books")
 public class BooksController {
 
-    @ContinueSpan  // <1>
     @Produces(MediaType.TEXT_PLAIN)
     @Get("/stock/{isbn}")
+    @ContinueSpan // <1>
     public Boolean stock(@SpanTag("stock.isbn") @NotBlank String isbn) { // <2>
         return bookInventoryByIsbn(isbn).map(bi -> bi.getStock() > 0).orElse(null);
     }
